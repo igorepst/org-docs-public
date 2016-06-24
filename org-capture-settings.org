@@ -27,7 +27,7 @@ javascript:(function()%20{location.href='org-protocol://capture://w/'+encodeURIC
    1. If you don't have =use-package=, just copy the =setq= part
    2. Both =org= and =org-protocol= have deferred loading, hence we'll add =require= for the latter in next sections, when the former will be loaded by the protocol itself
    3. The letter "w" both in the bookmark and in the template may be changed, but it should be the same for both cases
-   4. After completing the instructions, restart Firefox and check that =org-protocol= has associated handler in =about:preferences#applications=
+   4. After completing the instructions, restart Firefox, click on the bookmark once & approve the usage of the handler. Later you may check that =org-protocol= has an associated handler in =about:preferences#applications=
 
 * Linux
 
