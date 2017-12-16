@@ -1,0 +1,154 @@
+* Main article
+[[https://wiki.archlinux.org/index.php/Installation_guide][Installation guide]]
+** Get distribution
+[[https://www.archlinux.org/download/][Download]]
+** Verify boot was with UEFI
+#+BEGIN_SRC shell
+ls /sys/firmware/efi/efivars
+#+END_SRC
+If the directory doesn't exist, change boot mode in BIOS
+** Verify connection with ping
+#+BEGIN_SRC shell
+ping 8.8.8.8
+#+END_SRC
+** Update the system clock
+#+BEGIN_SRC shell
+timedatectl set-ntp true
+#+END_SRC
+** Partition the disks for GPT
+#+BEGIN_SRC shell
+gdisk -l /dev/sda
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048         1050623   512.0 MiB   EF00  EFI System
+   2         1050624         7342079   3.0 GiB     8300  Linux filesystem
+   3         7342080       234441614   108.3 GiB   8300  Linux filesystem
+#+END_SRC
+** Format the partitions
+*** EFI with FAT32
+#+BEGIN_SRC shell
+mkfs.fat -F32 /dev/sda1
+#+END_SRC
+*** Others with ext4
+#+BEGIN_SRC shell
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
+#+END_SRC
+** Mount the file systems
+*** Root
+#+BEGIN_SRC shell
+mount /dev/sda3 /mnt
+#+END_SRC
+*** Others
+#+BEGIN_SRC shell
+mkdir -p /mnt/boot /mnt/home
+mount /dev/sda1 /mnt/boot
+mount /dev/sda2 /mnt/boot
+#+END_SRC
+** Swap file
+#+BEGIN_SRC shell
+fallocate -l 2G /mnt/swapfile
+chmod 600 /mnt/swapfile
+mkswap /mnt/swapfile
+swapon /mnt/swapfile
+#+END_SRC
+** Select the mirrors
+Edit ~/etc/pacman.d/mirrorlist~
+** Install the base packages
+#+BEGIN_SRC shell
+pacstrap /mnt base
+#+END_SRC
+** Fstab
+#+BEGIN_SRC shell
+genfstab -U /mnt >> /mnt/etc/fstab
+#+END_SRC
+*** /etc/fstab
+#+INCLUDE: "/etc/fstab" src shell
+** Chroot
+#+BEGIN_SRC shell
+arch-chroot /mnt
+#+END_SRC
+** Time zone
+#+BEGIN_SRC shell
+ln -sf /usr/share/zoneinfo/Asia/Jerusalem /etc/localtime
+hwclock --systohc
+#+END_SRC
+** Locale
+*** /etc/locale.gen
+#+INCLUDE: "/etc/locale.gen" src shell
+#+BEGIN_SRC shell
+locale-gen
+#+END_SRC
+*** /etc/locale.conf
+#+INCLUDE: "/etc/locale.conf" src shell
+** Hostname
+*** /etc/hostname
+#+INCLUDE: "/etc/hostname" src shell
+*** /etc/hosts
+#+INCLUDE: "/etc/hosts" src shell
+** Network
+*** /etc/systemd/network/25-wired.network
+#+INCLUDE: "/etc/systemd/network/25-wired.network" src shell
+#+BEGIN_SRC shell
+ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+systemctl enable --now systemd-networkd
+systemctl enable --now systemd-resolved
+#+END_SRC
+** Root password
+#+BEGIN_SRC shell
+passwd
+#+END_SRC
+** Grub + EFI boot manager + Intel microcode updates
+#+BEGIN_SRC shell
+pacman -S grub efibootmgr intel-ucode
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+grub-mkconfig -o /boot/grub/grub.cfg
+#+END_SRC
+** NTFS
+#+BEGIN_SRC shell
+pacman -S ntfs-3g
+mkdir /mnt/Big /mnt/Large /mnt/New
+groupadd users
+chown :users /mnt/Big
+chown :users /mnt/Large
+chown :users /mnt/New
+#+END_SRC
+** Create a user
+#+BEGIN_SRC shell
+useradd -m -G wheel -s /bin/bash vasya
+passwd vasya
+usermod -aG users vasya
+#+END_SRC
+** Reboot
+#+BEGIN_SRC shell
+exit
+umount -R /mnt
+reboot
+#+END_SRC
+** Install additional packages
+*** Edit /etc/pacman.conf, uncomment =multilib=
+*** Install
+#+BEGIN_SRC shell
+pacman -S xorg-server xorg-xinit nvidia plasma-meta kde-applications-meta kde-l10n-ru
+#+END_SRC
+** Automatic login to virtual console
+#+BEGIN_SRC shell
+systemctl edit getty@tty1
+#+END_SRC
+*** /etc/systemd/system/getty@tty1.service.d/override.conf
+#+INCLUDE: "/etc/systemd/system/getty@tty1.service.d/override.conf" src shell
+*** Edit =/etc/systemd/logind.conf=, set =NAutoVTs=2=
+** xinit
+*** ~/.xserverrc
+#+INCLUDE: "~/.xserverrc" src shell
+*** ~/.xinitrc
+#+BEGIN_SRC shell
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+#+END_SRC
+#+INCLUDE: "~/.xinitrc" src shell
+*** Autostart X at login
+Append to the end of =~/.bash_profile=
+#+BEGIN_SRC shell
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec startx
+fi
+#+END_SRC
