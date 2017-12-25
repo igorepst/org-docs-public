@@ -169,6 +169,8 @@ SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 And then 
 #+BEGIN_SRC shell
 systemctl --user enable --now ssh-agent
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
 echo "AddKeysToAgent yes" >> ~/.ssh/config
-chmod 600 ~/.ssh/config
+chmod 600 ~/.ssh/*
 #+END_SRC
