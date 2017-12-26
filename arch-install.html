@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-12-26 Tue 22:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org9ed9dde">1. Main article</a>
+<ul>
+<li><a href="#org2ecb288">1.1. Get distribution</a></li>
+<li><a href="#orgab10f4d">1.2. Verify boot was with UEFI</a></li>
+<li><a href="#org264cb89">1.3. Verify connection with ping</a></li>
+<li><a href="#orga899841">1.4. Update the system clock</a></li>
+<li><a href="#org79673ae">1.5. Partition the disks for GPT</a></li>
+<li><a href="#org8cb31a0">1.6. Format the partitions</a>
+<ul>
+<li><a href="#org355e9b3">1.6.1. EFI with FAT32</a></li>
+<li><a href="#org99e83e4">1.6.2. Others with ext4</a></li>
+</ul>
+</li>
+<li><a href="#orgcb69153">1.7. Mount the file systems</a>
+<ul>
+<li><a href="#orgacb3cb9">1.7.1. Root</a></li>
+<li><a href="#org6cc04ce">1.7.2. Others</a></li>
+</ul>
+</li>
+<li><a href="#org886735e">1.8. Swap file</a></li>
+<li><a href="#orga7dcc13">1.9. Select the mirrors</a></li>
+<li><a href="#org82a0d33">1.10. Install the base packages</a></li>
+<li><a href="#org43a48ac">1.11. Fstab</a>
+<ul>
+<li><a href="#orgf84fa81">1.11.1. /etc/fstab</a></li>
+</ul>
+</li>
+<li><a href="#orga52ff48">1.12. Chroot</a></li>
+<li><a href="#orgd266247">1.13. Time zone</a></li>
+<li><a href="#orgd9b0246">1.14. Locale</a>
+<ul>
+<li><a href="#org743c9b2">1.14.1. /etc/locale.gen</a></li>
+<li><a href="#org0f94ad7">1.14.2. /etc/locale.conf</a></li>
+</ul>
+</li>
+<li><a href="#orgaf03099">1.15. Hostname</a>
+<ul>
+<li><a href="#org06cb0fc">1.15.1. /etc/hostname</a></li>
+<li><a href="#orgcb0346d">1.15.2. /etc/hosts</a></li>
+</ul>
+</li>
+<li><a href="#orgd5d65c3">1.16. Network</a>
+<ul>
+<li><a href="#org32048f4">1.16.1. /etc/systemd/network/25-wired.network</a></li>
+</ul>
+</li>
+<li><a href="#org7acdf2e">1.17. Root password</a></li>
+<li><a href="#orgd45da9b">1.18. Grub + EFI boot manager + Intel microcode updates</a></li>
+<li><a href="#org655fa7e">1.19. NTFS</a></li>
+<li><a href="#orgeb47767">1.20. Create a user</a></li>
+<li><a href="#org5ff100f">1.21. Reboot</a></li>
+<li><a href="#orgbf1cd0c">1.22. Install additional packages</a>
+<ul>
+<li><a href="#org98ad2ed">1.22.1. Edit /etc/pacman.conf, uncomment <code>multilib</code></a></li>
+<li><a href="#orgbdf628d">1.22.2. Install</a></li>
+</ul>
+</li>
+<li><a href="#orgeeb8de4">1.23. SSD</a></li>
+<li><a href="#org8168a7e">1.24. Samba</a>
+<ul>
+<li><a href="#orgcde8279">1.24.1. /etc/samba/smb.conf</a></li>
+</ul>
+</li>
+<li><a href="#orgf2bde1e">1.25. Automatic login to virtual console</a>
+<ul>
+<li><a href="#org943140c">1.25.1. /etc/systemd/system/getty@tty1.service.d/override.conf</a></li>
+<li><a href="#org32df0c0">1.25.2. Edit <code>/etc/systemd/logind.conf</code>, set <code>NAutoVTs=2</code></a></li>
+</ul>
+</li>
+<li><a href="#orgeb9a1c5">1.26. xinit</a>
+<ul>
+<li><a href="#org967302b">1.26.1. ~/.xserverrc</a></li>
+<li><a href="#org978d0aa">1.26.2. ~/.xinitrc</a></li>
+<li><a href="#org83f18f7">1.26.3. ~/.Xdefaults</a></li>
+<li><a href="#org083aee4">1.26.4. Autostart X at login</a></li>
+</ul>
+</li>
+<li><a href="#org872aa7c">1.27. AUR</a></li>
+<li><a href="#org84cec05">1.28. Set Chromium as default browser</a></li>
+<li><a href="#orgdb10104">1.29. SSH</a>
+<ul>
+<li><a href="#org022fd9a">1.29.1. Config</a></li>
+<li><a href="#orgb2c276e">1.29.2. Agent</a></li>
+<li><a href="#org00f8f25">1.29.3. Example of creating a key</a></li>
+<li><a href="#org62e1266">1.29.4. Git</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9ed9dde" class="outline-2">
+<h2 id="org9ed9dde"><span class="section-number-2">1</span> Main article</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="https://wiki.archlinux.org/index.php/Installation_guide">Installation guide</a>
+</p>
+</div>
+<div id="outline-container-org2ecb288" class="outline-3">
+<h3 id="org2ecb288"><span class="section-number-3">1.1</span> Get distribution</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<a href="https://www.archlinux.org/download/">Download</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgab10f4d" class="outline-3">
+<h3 id="orgab10f4d"><span class="section-number-3">1.2</span> Verify boot was with UEFI</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-shell">ls /sys/firmware/efi/efivars
+</pre>
+</div>
+<p>
+If the directory doesn't exist, change boot mode in BIOS
+</p>
+</div>
+</div>
+<div id="outline-container-org264cb89" class="outline-3">
+<h3 id="org264cb89"><span class="section-number-3">1.3</span> Verify connection with ping</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<pre class="src src-shell">ping 8.8.8.8
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga899841" class="outline-3">
+<h3 id="orga899841"><span class="section-number-3">1.4</span> Update the system clock</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-shell">timedatectl set-ntp true
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org79673ae" class="outline-3">
+<h3 id="org79673ae"><span class="section-number-3">1.5</span> Partition the disks for GPT</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+<pre class="src src-shell">gdisk -l /dev/sda
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048         1050623   512.0 MiB   EF00  EFI System
+   2         1050624         7342079   3.0 GiB     8300  Linux filesystem
+   3         7342080       234441614   108.3 GiB   8300  Linux filesystem
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8cb31a0" class="outline-3">
+<h3 id="org8cb31a0"><span class="section-number-3">1.6</span> Format the partitions</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org355e9b3" class="outline-4">
+<h4 id="org355e9b3"><span class="section-number-4">1.6.1</span> EFI with FAT32</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<div class="org-src-container">
+<pre class="src src-shell">mkfs.fat -F32 /dev/sda1
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org99e83e4" class="outline-4">
+<h4 id="org99e83e4"><span class="section-number-4">1.6.2</span> Others with ext4</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<div class="org-src-container">
+<pre class="src src-shell">mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcb69153" class="outline-3">
+<h3 id="orgcb69153"><span class="section-number-3">1.7</span> Mount the file systems</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-orgacb3cb9" class="outline-4">
+<h4 id="orgacb3cb9"><span class="section-number-4">1.7.1</span> Root</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<div class="org-src-container">
+<pre class="src src-shell">mount /dev/sda3 /mnt
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6cc04ce" class="outline-4">
+<h4 id="org6cc04ce"><span class="section-number-4">1.7.2</span> Others</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<div class="org-src-container">
+<pre class="src src-shell">mkdir -p /mnt/boot /mnt/home
+mount /dev/sda1 /mnt/boot
+mount /dev/sda2 /mnt/boot
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org886735e" class="outline-3">
+<h3 id="org886735e"><span class="section-number-3">1.8</span> Swap file</h3>
+<div class="outline-text-3" id="text-1-8">
+<div class="org-src-container">
+<pre class="src src-shell">fallocate -l 2G /mnt/swapfile
+chmod 600 /mnt/swapfile
+mkswap /mnt/swapfile
+swapon /mnt/swapfile
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga7dcc13" class="outline-3">
+<h3 id="orga7dcc13"><span class="section-number-3">1.9</span> Select the mirrors</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Edit <code>/etc/pacman.d/mirrorlist</code>
+</p>
+</div>
+</div>
+<div id="outline-container-org82a0d33" class="outline-3">
+<h3 id="org82a0d33"><span class="section-number-3">1.10</span> Install the base packages</h3>
+<div class="outline-text-3" id="text-1-10">
+<div class="org-src-container">
+<pre class="src src-shell">pacstrap /mnt base
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org43a48ac" class="outline-3">
+<h3 id="org43a48ac"><span class="section-number-3">1.11</span> Fstab</h3>
+<div class="outline-text-3" id="text-1-11">
+<div class="org-src-container">
+<pre class="src src-shell">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</pre>
+</div>
+</div>
+<div id="outline-container-orgf84fa81" class="outline-4">
+<h4 id="orgf84fa81"><span class="section-number-4">1.11.1</span> /etc/fstab</h4>
+<div class="outline-text-4" id="text-1-11-1">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">Static information about the filesystems.</span>
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">See fstab(5) for details.</span>
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">&lt;file system&gt; &lt;dir&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;</span>
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">/dev/sda3</span>
+<span style="color: #DFAF8F;">UUID</span>=68f0fe08-7d37-414f-ade6-b087afb4dafa       /               ext4            rw,relatime,<span style="color: #DFAF8F;">data</span>=ordered        0 1
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">/dev/sda1</span>
+<span style="color: #DFAF8F;">UUID</span>=9A4C-2B77          /boot           vfat            rw,relatime,<span style="color: #DFAF8F;">fmask</span>=0022,<span style="color: #DFAF8F;">dmask</span>=0022,<span style="color: #DFAF8F;">codepage</span>=437,<span style="color: #DFAF8F;">iocharset</span>=iso8859-1,<span style="color: #DFAF8F;">shortname</span>=mixed,<span style="color: #DFAF8F;">errors</span>=remount-ro    0 2
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">/dev/sda2</span>
+<span style="color: #DFAF8F;">UUID</span>=fb10746a-e6f7-4030-8d4b-97a8cde6e0b2       /home           ext4            rw,relatime,<span style="color: #DFAF8F;">data</span>=ordered        0 2
+
+/swapfile       none    swap    defaults        0       0
+
+/dev/sdb1       /mnt/Big        ntfs-3g defaults        0       0
+/dev/sdc1       /mnt/Large      ntfs-3g defaults        0       0
+/dev/sdd1       /mnt/New        ntfs-3g defaults        0       0
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orga52ff48" class="outline-3">
+<h3 id="orga52ff48"><span class="section-number-3">1.12</span> Chroot</h3>
+<div class="outline-text-3" id="text-1-12">
+<div class="org-src-container">
+<pre class="src src-shell">arch-chroot /mnt
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd266247" class="outline-3">
+<h3 id="orgd266247"><span class="section-number-3">1.13</span> Time zone</h3>
+<div class="outline-text-3" id="text-1-13">
+<div class="org-src-container">
+<pre class="src src-shell">ln -sf /usr/share/zoneinfo/Asia/Jerusalem /etc/localtime
+hwclock --systohc
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd9b0246" class="outline-3">
+<h3 id="orgd9b0246"><span class="section-number-3">1.14</span> Locale</h3>
+<div class="outline-text-3" id="text-1-14">
+</div>
+<div id="outline-container-org743c9b2" class="outline-4">
+<h4 id="org743c9b2"><span class="section-number-4">1.14.1</span> /etc/locale.gen</h4>
+<div class="outline-text-4" id="text-1-14-1">
+<div class="org-src-container">
+<pre class="src src-shell">en_US.UTF-8 UTF-8  
+he_IL.UTF-8 UTF-8  
+ru_RU.UTF-8 UTF-8 
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-shell">locale-gen
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0f94ad7" class="outline-4">
+<h4 id="org0f94ad7"><span class="section-number-4">1.14.2</span> /etc/locale.conf</h4>
+<div class="outline-text-4" id="text-1-14-2">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #DFAF8F;">LANG</span>=en_US.UTF-8
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaf03099" class="outline-3">
+<h3 id="orgaf03099"><span class="section-number-3">1.15</span> Hostname</h3>
+<div class="outline-text-3" id="text-1-15">
+</div>
+<div id="outline-container-org06cb0fc" class="outline-4">
+<h4 id="org06cb0fc"><span class="section-number-4">1.15.1</span> /etc/hostname</h4>
+<div class="outline-text-4" id="text-1-15-1">
+<div class="org-src-container">
+<pre class="src src-shell">vasyaPC
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcb0346d" class="outline-4">
+<h4 id="orgcb0346d"><span class="section-number-4">1.15.2</span> /etc/hosts</h4>
+<div class="outline-text-4" id="text-1-15-2">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">Static table lookup for hostnames.</span>
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">See hosts(5) for details.</span>
+127.0.0.1 localhost.localdomain localhost
+::1 localhost.localdomain localhost
+127.0.1.1 vasyaPC.localdomain vasyaPC
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd5d65c3" class="outline-3">
+<h3 id="orgd5d65c3"><span class="section-number-3">1.16</span> Network</h3>
+<div class="outline-text-3" id="text-1-16">
+</div>
+<div id="outline-container-org32048f4" class="outline-4">
+<h4 id="org32048f4"><span class="section-number-4">1.16.1</span> /etc/systemd/network/25-wired.network</h4>
+<div class="outline-text-4" id="text-1-16-1">
+<div class="org-src-container">
+<pre class="src src-shell">[Match]
+<span style="color: #DFAF8F;">Name</span>=enp3s0
+
+[Network]
+<span style="color: #DFAF8F;">Address</span>=192.168.1.101/24
+<span style="color: #DFAF8F;">Gateway</span>=192.168.1.1
+<span style="color: #DFAF8F;">DNS</span>=212.117.129.3
+<span style="color: #DFAF8F;">DNS</span>=212.117.128.6
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-shell">ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+systemctl enable --now systemd-networkd
+systemctl enable --now systemd-resolved
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org7acdf2e" class="outline-3">
+<h3 id="org7acdf2e"><span class="section-number-3">1.17</span> Root password</h3>
+<div class="outline-text-3" id="text-1-17">
+<div class="org-src-container">
+<pre class="src src-shell">passwd
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd45da9b" class="outline-3">
+<h3 id="orgd45da9b"><span class="section-number-3">1.18</span> Grub + EFI boot manager + Intel microcode updates</h3>
+<div class="outline-text-3" id="text-1-18">
+<div class="org-src-container">
+<pre class="src src-shell">pacman -S grub efibootmgr intel-ucode
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+grub-mkconfig -o /boot/grub/grub.cfg
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org655fa7e" class="outline-3">
+<h3 id="org655fa7e"><span class="section-number-3">1.19</span> NTFS</h3>
+<div class="outline-text-3" id="text-1-19">
+<div class="org-src-container">
+<pre class="src src-shell">pacman -S ntfs-3g
+mkdir /mnt/Big /mnt/Large /mnt/New
+groupadd users
+chown :users /mnt/Big
+chown :users /mnt/Large
+chown :users /mnt/New
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeb47767" class="outline-3">
+<h3 id="orgeb47767"><span class="section-number-3">1.20</span> Create a user</h3>
+<div class="outline-text-3" id="text-1-20">
+<div class="org-src-container">
+<pre class="src src-shell">useradd -m -G wheel -s /bin/bash vasya
+passwd vasya
+gpasswd users -a vasya
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5ff100f" class="outline-3">
+<h3 id="org5ff100f"><span class="section-number-3">1.21</span> Reboot</h3>
+<div class="outline-text-3" id="text-1-21">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #F0DFAF; font-weight: bold;">exit</span>
+umount -R /mnt
+reboot
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbf1cd0c" class="outline-3">
+<h3 id="orgbf1cd0c"><span class="section-number-3">1.22</span> Install additional packages</h3>
+<div class="outline-text-3" id="text-1-22">
+</div>
+<div id="outline-container-org98ad2ed" class="outline-4">
+<h4 id="org98ad2ed"><span class="section-number-4">1.22.1</span> Edit /etc/pacman.conf, uncomment <code>multilib</code></h4>
+</div>
+<div id="outline-container-orgbdf628d" class="outline-4">
+<h4 id="orgbdf628d"><span class="section-number-4">1.22.2</span> Install</h4>
+<div class="outline-text-4" id="text-1-22-2">
+<div class="org-src-container">
+<pre class="src src-shell">pacman -S xorg-server xorg-xinit nvidia plasma-meta kde-applications-meta <span style="color: #CC9393;">\</span>
+kde-l10n-ru bash-completion jdk9-openjdk samba ttf-dejavu ttf-symbola noto-fonts <span style="color: #CC9393;">\</span>
+util-linux deluge python2-gobject2 pygtk git openssh sudo
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeeb8de4" class="outline-3">
+<h3 id="orgeeb8de4"><span class="section-number-3">1.23</span> SSD</h3>
+<div class="outline-text-3" id="text-1-23">
+<div class="org-src-container">
+<pre class="src src-shell">systemctl enable --now fstrim.timer
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8168a7e" class="outline-3">
+<h3 id="org8168a7e"><span class="section-number-3">1.24</span> Samba</h3>
+<div class="outline-text-3" id="text-1-24">
+</div>
+<div id="outline-container-orgcde8279" class="outline-4">
+<h4 id="orgcde8279"><span class="section-number-4">1.24.1</span> /etc/samba/smb.conf</h4>
+<div class="outline-text-4" id="text-1-24-1">
+<div class="org-src-container">
+<pre class="src src-shell">[global]
+usershare path = /var/lib/samba/usershare
+usershare max shares = 100
+usershare allow guests = yes
+usershare owner only = yes
+server multi channel support = yes
+socket options = IPTOS_THROUGHPUT SO_KEEPALIVE
+deadtime = 30
+use sendfile = Yes
+write cache size = 262144
+min receivefile size = 16384
+aio read size = 16384
+aio write size = 16384
+load printers = No
+printcap name = /dev/null
+disable spoolss = Yes
+workgroup = WORKGROUP
+server string = Media Server
+security = user
+map to guest = Bad User
+log file = /var/log/samba/%m.log
+max log size = 50
+interfaces = 192.168.1.100/24
+dns proxy = no
+
+[Large]
+path = /mnt/Large/Mult
+public = yes
+only guest = yes
+writebale = no
+
+[New]
+path = /mnt/New/Mult
+public = yes
+only guest = yes
+writable = no
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-shell">mkdir -p /var/lib/samba/usershare
+groupadd -r sambashare
+chown root:sambashare /var/lib/samba/usershare
+chmod 1770 /var/lib/samba/usershare
+gpasswd sambashare -a vasya
+systemctl enable --now smbd
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf2bde1e" class="outline-3">
+<h3 id="orgf2bde1e"><span class="section-number-3">1.25</span> Automatic login to virtual console</h3>
+<div class="outline-text-3" id="text-1-25">
+<div class="org-src-container">
+<pre class="src src-shell">systemctl edit getty@tty1
+</pre>
+</div>
+</div>
+<div id="outline-container-org943140c" class="outline-4">
+<h4 id="org943140c"><span class="section-number-4">1.25.1</span> /etc/systemd/system/getty@tty1.service.d/override.conf</h4>
+<div class="outline-text-4" id="text-1-25-1">
+<div class="org-src-container">
+<pre class="src src-shell">[Service]
+<span style="color: #DFAF8F;">ExecStart</span>=
+<span style="color: #DFAF8F;">ExecStart</span>=-/usr/bin/agetty --autologin vasya --noclear %I $<span style="color: #DFAF8F;">TERM</span>
+<span style="color: #DFAF8F;">Type</span>=simple
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org32df0c0" class="outline-4">
+<h4 id="org32df0c0"><span class="section-number-4">1.25.2</span> Edit <code>/etc/systemd/logind.conf</code>, set <code>NAutoVTs=2</code></h4>
+</div>
+</div>
+<div id="outline-container-orgeb9a1c5" class="outline-3">
+<h3 id="orgeb9a1c5"><span class="section-number-3">1.26</span> xinit</h3>
+<div class="outline-text-3" id="text-1-26">
+</div>
+<div id="outline-container-org967302b" class="outline-4">
+<h4 id="org967302b"><span class="section-number-4">1.26.1</span> ~/.xserverrc</h4>
+<div class="outline-text-4" id="text-1-26-1">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">!/bin/</span><span style="color: #F0DFAF; font-weight: bold;">sh</span>
+<span style="color: #F0DFAF; font-weight: bold;">exec</span> /usr/bin/Xorg -nolisten tcp <span style="color: #CC9393;">"$@"</span> vt$<span style="color: #DFAF8F;">XDG_VTNR</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org978d0aa" class="outline-4">
+<h4 id="org978d0aa"><span class="section-number-4">1.26.2</span> ~/.xinitrc</h4>
+<div class="outline-text-4" id="text-1-26-2">
+<div class="org-src-container">
+<pre class="src src-shell">cp /etc/X11/xinit/xinitrc ~/.xinitrc
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">!/bin/</span><span style="color: #F0DFAF; font-weight: bold;">sh</span>
+
+<span style="color: #DFAF8F;">userresources</span>=$<span style="color: #DFAF8F;">HOME</span>/.Xresources
+<span style="color: #DFAF8F;">usermodmap</span>=$<span style="color: #DFAF8F;">HOME</span>/.Xmodmap
+<span style="color: #DFAF8F;">sysresources</span>=/etc/X11/xinit/.Xresources
+<span style="color: #DFAF8F;">sysmodmap</span>=/etc/X11/xinit/.Xmodmap
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">merge in defaults and keymaps</span>
+
+<span style="color: #F0DFAF; font-weight: bold;">if</span> [ -f $<span style="color: #DFAF8F;">sysresources</span> ]; <span style="color: #F0DFAF; font-weight: bold;">then</span>
+    xrdb -merge $<span style="color: #DFAF8F;">sysresources</span>
+<span style="color: #F0DFAF; font-weight: bold;">fi</span>
+
+<span style="color: #F0DFAF; font-weight: bold;">if</span> [ -f $<span style="color: #DFAF8F;">sysmodmap</span> ]; <span style="color: #F0DFAF; font-weight: bold;">then</span>
+    xmodmap $<span style="color: #DFAF8F;">sysmodmap</span>
+<span style="color: #F0DFAF; font-weight: bold;">fi</span>
+
+<span style="color: #F0DFAF; font-weight: bold;">if</span> [ -f <span style="color: #CC9393;">"$userresources"</span> ]; <span style="color: #F0DFAF; font-weight: bold;">then</span>
+    xrdb -merge <span style="color: #CC9393;">"$userresources"</span>
+<span style="color: #F0DFAF; font-weight: bold;">fi</span>
+
+<span style="color: #F0DFAF; font-weight: bold;">if</span> [ -f <span style="color: #CC9393;">"$usermodmap"</span> ]; <span style="color: #F0DFAF; font-weight: bold;">then</span>
+    xmodmap <span style="color: #CC9393;">"$usermodmap"</span>
+<span style="color: #F0DFAF; font-weight: bold;">fi</span>
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">start some nice programs</span>
+
+<span style="color: #F0DFAF; font-weight: bold;">if</span> [ -d /etc/X11/xinit/xinitrc.d ] ; <span style="color: #F0DFAF; font-weight: bold;">then</span>
+ <span style="color: #F0DFAF; font-weight: bold;">for</span> f<span style="color: #F0DFAF; font-weight: bold;"> in</span> /etc/X11/xinit/xinitrc.d/?*.sh ; <span style="color: #F0DFAF; font-weight: bold;">do</span>
+  [ -x <span style="color: #CC9393;">"$f"</span> ] &amp;&amp; <span style="color: #DCDCCC; font-weight: bold;">.</span> <span style="color: #CC9393;">"$f"</span>
+ <span style="color: #F0DFAF; font-weight: bold;">done</span>
+ <span style="color: #DCDCCC; font-weight: bold;">unset</span> f
+<span style="color: #F0DFAF; font-weight: bold;">fi</span>
+
+<span style="color: #F0DFAF; font-weight: bold;">exec</span> startkde
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org83f18f7" class="outline-4">
+<h4 id="org83f18f7"><span class="section-number-4">1.26.3</span> ~/.Xdefaults</h4>
+<div class="outline-text-4" id="text-1-26-3">
+<div class="org-src-container">
+<pre class="src src-shell">Xft.dpi:96
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org083aee4" class="outline-4">
+<h4 id="org083aee4"><span class="section-number-4">1.26.4</span> Autostart X at login</h4>
+<div class="outline-text-4" id="text-1-26-4">
+<p>
+Append to the end of <code>~/.bash_profile</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #F0DFAF; font-weight: bold;">if</span> [ -z <span style="color: #CC9393;">"$DISPLAY"</span> ] &amp;&amp; [ -n <span style="color: #CC9393;">"$XDG_VTNR"</span> ] &amp;&amp; [ <span style="color: #CC9393;">"$XDG_VTNR"</span> -eq 1 ]; <span style="color: #F0DFAF; font-weight: bold;">then</span>
+  <span style="color: #F0DFAF; font-weight: bold;">exec</span> startx
+<span style="color: #F0DFAF; font-weight: bold;">fi</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org872aa7c" class="outline-3">
+<h3 id="org872aa7c"><span class="section-number-3">1.27</span> AUR</h3>
+<div class="outline-text-3" id="text-1-27">
+<div class="org-src-container">
+<pre class="src src-shell">pacman -S --needed base-devel
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org84cec05" class="outline-3">
+<h3 id="org84cec05"><span class="section-number-3">1.28</span> Set Chromium as default browser</h3>
+<div class="outline-text-3" id="text-1-28">
+<p>
+Settings -&gt; Applications -&gt; File Associations &#x2013;&gt; text/html &amp; xhtml+xml
+</p>
+</div>
+</div>
+<div id="outline-container-orgdb10104" class="outline-3">
+<h3 id="orgdb10104"><span class="section-number-3">1.29</span> SSH</h3>
+<div class="outline-text-3" id="text-1-29">
+</div>
+<div id="outline-container-org022fd9a" class="outline-4">
+<h4 id="org022fd9a"><span class="section-number-4">1.29.1</span> Config</h4>
+<div class="outline-text-4" id="text-1-29-1">
+<div class="org-src-container">
+<pre class="src src-shell">mkdir -p ~/.ssh/sockets
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+chmod 700 ~/.ssh/sockets
+</pre>
+</div>
+</div>
+<ol class="org-ol">
+<li><a id="orgce9128d"></a>~/.ssh/config<br />
+<div class="outline-text-5" id="text-1-29-1-1">
+<div class="org-src-container">
+<pre class="src src-shell">AddKeysToAgent yes
+AddressFamily inet
+ControlMaster auto
+ControlPersist yes
+ControlPath ~/.ssh/sockets/socket-%r@%h:%p
+IdentityFile ~/.ssh/%h_id_rsa
+
+HOST github.com
+        IdentitiesOnly yes
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgb2c276e" class="outline-4">
+<h4 id="orgb2c276e"><span class="section-number-4">1.29.2</span> Agent</h4>
+<div class="outline-text-4" id="text-1-29-2">
+</div>
+<ol class="org-ol">
+<li><a id="org9ffa641"></a>~/.config/systemd/user/ssh-agent.service<br />
+<div class="outline-text-5" id="text-1-29-2-1">
+<div class="org-src-container">
+<pre class="src src-shell">[Unit]
+<span style="color: #DFAF8F;">Description</span>=SSH key agent
+
+[Service]
+<span style="color: #DFAF8F;">Type</span>=simple
+<span style="color: #DFAF8F;">Environment</span>=<span style="color: #DFAF8F;">SSH_AUTH_SOCK</span>=%t/ssh-agent.socket
+<span style="color: #DFAF8F;">ExecStart</span>=/usr/bin/ssh-agent -D -a $<span style="color: #DFAF8F;">SSH_AUTH_SOCK</span>
+
+[Install]
+<span style="color: #DFAF8F;">WantedBy</span>=default.target
+</pre>
+</div>
+<p>
+Put into <code>~/.pam_environment</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">SSH_AUTH_SOCK <span style="color: #DFAF8F;">DEFAULT</span>=<span style="color: #CC9393;">"${XDG_RUNTIME_DIR}/ssh-agent.socket"</span>
+</pre>
+</div>
+<p>
+And then 
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">systemctl --user enable --now ssh-agent
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org00f8f25" class="outline-4">
+<h4 id="org00f8f25"><span class="section-number-4">1.29.3</span> Example of creating a key</h4>
+<div class="outline-text-4" id="text-1-29-3">
+<p>
+Save the key as <code>~/.ssh/github.com_id_rsa</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ssh-keygen -t rsa -b 4096 -C <span style="color: #CC9393;">"your_email@example.com"</span>
+ssh -T git@github.com
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org62e1266" class="outline-4">
+<h4 id="org62e1266"><span class="section-number-4">1.29.4</span> Git</h4>
+<div class="outline-text-4" id="text-1-29-4">
+<div class="org-src-container">
+<pre class="src src-shell">git config --global user.email <span style="color: #CC9393;">"your_email@example.com"</span>
+git config --global user.name <span style="color: #CC9393;">"your name"</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2017-12-26 Tue 22:17</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
